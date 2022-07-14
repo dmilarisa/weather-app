@@ -24,6 +24,7 @@ li {
   font-weight: 100;
   line-height: 19px;
   text-align: left;
+  text-transform: capitalize;
 }
 
 small {
