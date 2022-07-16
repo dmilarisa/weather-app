@@ -45,11 +45,19 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
+  let iconElement = document.querySelector("#icon");
+  let iconCode = response.data.weather[0].icon;
+  let iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  iconElement.setAttribute("src", iconUrl);
+
 
   console.log(response.data);
 }
 
+let city = "Kyiv";
 let apiKey = "c358f38536c4808d14556c03c5e2d3e0";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Trofa&appid=${apiKey}&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+
 
 axios.get(apiUrl).then(displayTemperature);
